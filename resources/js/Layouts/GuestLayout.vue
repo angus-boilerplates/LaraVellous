@@ -14,8 +14,8 @@ defineProps({
     <Head :title="title" />
 
     <Banner />
-
-    <div class="body">
+    
+    <div class="body dark:bg-[#17202A] dark:text-[#94A2B8]">
         <!-- Navigation -->
         <GuestNavbar />
 

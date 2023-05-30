@@ -1,15 +1,30 @@
 <template>
-  <Disclosure as="nav" class="bg-white shadow" v-slot="{ open }">
+  <Disclosure as="nav" class="shadow sm:shadow-none" v-slot="{ open }">
     <div class="mx-auto max-w-7xl px-4 sm:px-6">
       <div class="flex h-16 justify-between">
 
         <!-- Logo and links -->
         <div class="flex gap-x-5">
           <div class="flex flex-shrink-0 items-center">
-            <TextLogo class="h-5" />
+            <TextLogo class="h-5 dark:hidden" />
+            <TextLogoForDarkMode class="h-5 hidden dark:block" />
+
           </div>
           <div class="hidden sm:ml-6 sm:flex sm:space-x-8">
-            <Link v-for="item in navigation" :href="item.href"  class="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700">
+            <Link v-for="item in navigation" :href="item.href" class="
+            inline-flex 
+            items-center 
+            border-b-2 
+            border-transparent 
+            px-1 
+            pt-1 
+            text-sm 
+            font-medium 
+            hover:border-gray-300 
+            text-zinc-500
+            hover:text-zinc-600
+            dark:text-zinc-300 
+            dark:hover:text-zinc-400">
               {{ item.name}}
             </Link>
           </div>
@@ -19,9 +34,12 @@
         <div class="hidden sm:ml-6 sm:flex sm:items-center">
 
           <div class="flex gap-x-3">
-            <Link :href="route('register')" type="button" class="rounded-md bg-slate-200 px-2.5 py-1.5 text-sm font-semibold text-slate-700 shadow-sm hover:bg-slate-300">Register</Link>
+            <Link 
+            :href="route('register')" 
+            type="button"
+            class="rounded-md px-2.5 py-1.5 text-sm font-semibold text-slate-700 shadow-sm bg-slate-200 hover:bg-slate-300 dark:bg-slate-700 dark:text-slate-100 dark:hover:bg-slate-600">Register</Link>
 
-            <Link :href="route('login')"  class="rounded-md bg-lime-500 px-2.5 py-1.5 text-sm font-semibold text-white shadow-sm hover:bg-lime-600">Login</Link>
+            <Link :href="route('login')"  class="rounded-md bg-[#8CBC54] px-2.5 py-1.5 text-sm font-semibold text-white shadow-sm hover:bg-lime-600">Login</Link>
           </div>
         </div>
 
@@ -56,6 +74,7 @@
 import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/vue'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/vue/24/outline'
 import TextLogo from "@/Components/logos/TextLogo.vue"
+import TextLogoForDarkMode from "@/Components/logos/TextLogoForDarkMode.vue"
 
 let navigation = [
     { name: 'Overview', href: "#", current: route().current('overview') },
