@@ -1,8 +1,7 @@
 <script setup>
-import { Head } from '@inertiajs/vue3';
-import Banner from '@/Components/Banner.vue';
 import GuestNavbar from "@/Components/_includes/GuestNavbar.vue";
 import GuestFooter from "@/Components/_includes/GuestFooter.vue";
+import MasterLayout from "./MasterLayout.vue";
 
 defineProps({
     title: String,
@@ -11,11 +10,7 @@ defineProps({
 </script>
 
 <template>
-    <Head :title="title" />
-
-    <Banner />
-    
-    <div class="body dark:bg-[#17202A] dark:text-[#94A2B8]">
+    <MasterLayout :title="title">
         <!-- Navigation -->
         <GuestNavbar />
 
@@ -26,5 +21,5 @@ defineProps({
 
         <!-- Footer -->
         <GuestFooter />
-    </div>
+    </MasterLayout>
 </template>
