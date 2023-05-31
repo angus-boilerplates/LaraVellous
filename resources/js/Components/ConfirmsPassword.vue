@@ -4,7 +4,7 @@ import DialogModal from './DialogModal.vue';
 import InputError from './InputError.vue';
 import PrimaryButton from './PrimaryButton.vue';
 import SecondaryButton from './SecondaryButton.vue';
-import TextInput from './TextInput.vue';
+import TextInput from '@/Components/form/TextInput.vue';
 
 const emit = defineEmits(['confirmed']);
 

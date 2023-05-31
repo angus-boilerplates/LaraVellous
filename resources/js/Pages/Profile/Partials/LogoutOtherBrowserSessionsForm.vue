@@ -7,7 +7,7 @@ import DialogModal from '@/Components/DialogModal.vue';
 import InputError from '@/Components/InputError.vue';
 import PrimaryButton from '@/Components/PrimaryButton.vue';
 import SecondaryButton from '@/Components/SecondaryButton.vue';
-import TextInput from '@/Components/TextInput.vue';
+import TextInput from '@/Components/form/TextInput.vue';
 
 defineProps({
     sessions: Array,
