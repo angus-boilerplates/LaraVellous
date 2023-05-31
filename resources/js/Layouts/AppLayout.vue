@@ -279,7 +279,7 @@ const logout = () => {
         </header>
 
         <!-- Page Content -->
-        <main>
+        <main class="content">
             <slot />
         </main>
     </MasterLayout>
