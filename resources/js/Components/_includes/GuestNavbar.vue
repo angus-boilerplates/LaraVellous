@@ -6,8 +6,8 @@
         <!-- Logo and links -->
         <div class="flex gap-x-5">
           <div class="flex flex-shrink-0 items-center">
-            <TextLogo class="h-5 dark:hidden" />
-            <TextLogoForDarkMode class="h-5 hidden dark:block" />
+            <TextLogo class="h-6 dark:hidden" />
+            <TextLogoForDarkMode class="h-6 hidden dark:block" />
 
           </div>
           <div class="hidden sm:ml-6 sm:flex sm:space-x-8">
@@ -34,12 +34,8 @@
         <div class="hidden sm:ml-6 sm:flex sm:items-center">
 
           <div class="flex gap-x-3">
-            <Link 
-            :href="route('register')" 
-            type="button"
-            class="rounded-md px-2.5 py-1.5 text-sm font-semibold text-slate-700 shadow-sm bg-slate-200 hover:bg-slate-300 dark:bg-slate-700 dark:text-slate-100 dark:hover:bg-slate-600">Register</Link>
-
-            <Link :href="route('login')"  class="rounded-md bg-[#8CBC54] px-2.5 py-1.5 text-sm font-semibold text-white shadow-sm hover:bg-lime-600">Login</Link>
+            <SecondaryButton :isLink="true" :href="route('register')">Register</SecondaryButton>
+            <PrimaryButton :isLink="true" :href="route('login')">Login</PrimaryButton>
           </div>
         </div>
 
@@ -75,6 +71,8 @@ import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuIt
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/vue/24/outline'
 import TextLogo from "@/Components/logos/TextLogo.vue"
 import TextLogoForDarkMode from "@/Components/logos/TextLogoForDarkMode.vue"
+import PrimaryButton from "@/Components/buttons/PrimaryButton.vue"
+import SecondaryButton from "@/Components/buttons/SecondaryButton.vue"
 
 let navigation = [
     { name: 'Overview', href: "#", current: route().current('overview') },
