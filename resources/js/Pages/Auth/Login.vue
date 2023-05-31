@@ -5,7 +5,7 @@ import AuthenticationCardLogo from '@/Components/AuthenticationCardLogo.vue';
 import Checkbox from '@/Components/Checkbox.vue';
 import InputError from '@/Components/InputError.vue';
 import InputLabel from '@/Components/InputLabel.vue';
-import PrimaryButton from '@/Components/PrimaryButton.vue';
+import PrimaryButton from '@/Components/buttons/PrimaryButton.vue';
 import TextInput from '@/Components/form/TextInput.vue';
 
 defineProps({

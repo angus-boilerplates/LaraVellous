@@ -5,9 +5,8 @@ import ActionMessage from '@/Components/ActionMessage.vue';
 import ActionSection from '@/Components/ActionSection.vue';
 import DialogModal from '@/Components/DialogModal.vue';
 import InputError from '@/Components/InputError.vue';
-import PrimaryButton from '@/Components/PrimaryButton.vue';
-import SecondaryButton from '@/Components/SecondaryButton.vue';
-import TextInput from '@/Components/form/TextInput.vue';
+import PrimaryButton from '@/Components/buttons/PrimaryButton.vue';
+import SecondaryButton from '@/Components/buttons/SecondaryButton.vue';import TextInput from '@/Components/form/TextInput.vue';
 
 defineProps({
     sessions: Array,
