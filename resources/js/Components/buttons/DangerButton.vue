@@ -9,7 +9,7 @@
 
 <script>
 export default {
-    name: "SecondaryButton",
+    name: "DangerButton",
     props: {
         size: {
             default: "m",
@@ -33,7 +33,7 @@ export default {
         },
 
         baseClasses(){
-            return "rounded-md font-semibold text-slate-700 shadow-sm bg-slate-200 hover:bg-slate-300 dark:bg-slate-700 dark:text-slate-100 dark:hover:bg-slate-600";
+            return "inline-flex items-center rounded-md bg-[#CA5761] font-semibold text-white shadow-sm hover:bg-[#B74F57]";
         }
 
     }
