@@ -11,20 +11,7 @@
 
           </div>
           <div class="hidden sm:ml-6 sm:flex sm:space-x-8">
-            <Link v-for="item in navigation" :href="item.href" class="
-            inline-flex
-            items-center
-            border-b-2
-            border-transparent
-            px-1
-            pt-1
-            text-sm
-            font-medium
-            hover:border-gray-300
-            text-zinc-500
-            hover:text-zinc-600
-            dark:text-zinc-300
-            dark:hover:text-zinc-400">
+            <Link v-for="item in navigation" :href="item.href" :class="[item.current ? 'border-primary': 'hover:text-zinc-600  dark:hover:text-zinc-400 hover:border-gray-300', 'inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-zinc-500 dark:text-zinc-300  ']">
               {{ item.name}}
             </Link>
           </div>
