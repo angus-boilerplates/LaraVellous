@@ -44,6 +44,9 @@ class HandleInertiaRequests extends Middleware
 
             // Can users register
             'canRegister' => Features::enabled(Features::registration()),
+
+            // Should the main login button be visible
+            'showLogin' => config('app.show_login_button'),
         ]);
     }
 }
