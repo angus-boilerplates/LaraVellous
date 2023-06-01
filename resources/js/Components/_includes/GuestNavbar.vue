@@ -12,18 +12,18 @@
           </div>
           <div class="hidden sm:ml-6 sm:flex sm:space-x-8">
             <Link v-for="item in navigation" :href="item.href" class="
-            inline-flex 
-            items-center 
-            border-b-2 
-            border-transparent 
-            px-1 
-            pt-1 
-            text-sm 
-            font-medium 
-            hover:border-gray-300 
+            inline-flex
+            items-center
+            border-b-2
+            border-transparent
+            px-1
+            pt-1
+            text-sm
+            font-medium
+            hover:border-gray-300
             text-zinc-500
             hover:text-zinc-600
-            dark:text-zinc-300 
+            dark:text-zinc-300
             dark:hover:text-zinc-400">
               {{ item.name}}
             </Link>
@@ -42,7 +42,7 @@
         <!-- Burger -->
         <div class="-mr-2 flex items-center sm:hidden">
           <!-- Mobile menu button -->
-          <DisclosureButton class="inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
+          <DisclosureButton class="inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-accent">
             <span class="sr-only">Open main menu</span>
             <Bars3Icon v-if="!open" class="block h-6 w-6" aria-hidden="true" />
             <XMarkIcon v-else class="block h-6 w-6" aria-hidden="true" />
@@ -54,12 +54,18 @@
     <!-- Mobile menu -->
     <DisclosurePanel class="sm:hidden">
       <div class="space-y-1 pb-3 pt-2">
-        <DisclosureButton v-for="item in navigation" :key="item.name" as="a" :href="item.href" :class="[item.current ? 'bg-gray-100 text-gray-900' : 'text-gray-900 hover:bg-gray-50 hover:text-gray-900', 'block rounded-md py-2 px-3 text-base font-medium']" :aria-current="item.current ? 'page' : undefined">{{ item.name }}</DisclosureButton>
+        <DisclosureButton v-for="item in navigation" :key="item.name" as="a" :href="item.href" :class="[item.current ? 'bg-gray-100 text-primary-dark dark:text-primary-light dark:bg-inherit dark:hover:bg-inherit' : 'hover:bg-light-light', 'block rounded-md py-2 px-3 text-base font-medium dark:hover:bg-dark dark:text-light']" :aria-current="item.current ? 'page' : undefined">{{ item.name }}</DisclosureButton>
 
       </div>
       <div class="border-t border-gray-200 space-y-1 pb-3 pt-4">
-        <DisclosureButton as="a" :href="route('register')" class="text-gray-900 hover:bg-gray-50 hover:text-gray-900 block rounded-md py-2 px-3 text-base font-medium">Regsiter</DisclosureButton>
-        <DisclosureButton as="a" :href="route('login')" class="text-gray-900 hover:bg-gray-50 hover:text-gray-900 block rounded-md py-2 px-3 text-base font-medium">Login</DisclosureButton>
+        <DisclosureButton as="a" :href="route('register')" class="
+        hover:bg-light-light block rounded-md py-2 px-3 text-base font-medium dark:hover:bg-dark dark:text-light">
+            Register
+        </DisclosureButton>
+        <DisclosureButton as="a" :href="route('login')" class="
+        hover:bg-light-light block rounded-md py-2 px-3 text-base font-medium dark:hover:bg-dark dark:text-light">
+            Login
+        </DisclosureButton>
       </div>
     </DisclosurePanel>
 
@@ -75,7 +81,7 @@ import PrimaryButton from "@/Components/buttons/PrimaryButton.vue"
 import SecondaryButton from "@/Components/buttons/SecondaryButton.vue"
 
 let navigation = [
-    { name: 'Overview', href: "#", current: route().current('overview') },
+    { name: 'Overview', href: "#", current: route().current('index') },
     { name: 'Features', href: "#", current: route().current('features') },
     { name: 'Pricing', href: "#", current: route().current('pricing') },
 

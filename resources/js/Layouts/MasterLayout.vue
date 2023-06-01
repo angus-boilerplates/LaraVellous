@@ -13,7 +13,7 @@ defineProps({
 
     <Banner />
 
-    <div class="body bg-gray-100 text-slate-700 dark:bg-[#17202A] dark:text-[#94A2B8]">
+    <div class="body bg-bgc text-txt-dark dark:bg-bgc-dark dark:text-txt">
         <slot />
     </div>
 </template>

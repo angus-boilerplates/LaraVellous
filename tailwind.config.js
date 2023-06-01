@@ -52,6 +52,16 @@ export default {
                     dark: "#DEDEDE",
                     dark2: "#D0D0D0",
                 },
+
+                bgc:{
+                    DEFAULT: "#F3F4F6",
+                    dark:  "#17202A",
+                },
+
+                txt: {
+                    DEFAULT: "#94A2B8",
+                    dark:  "#334255",
+                }
             },
         },
     },
