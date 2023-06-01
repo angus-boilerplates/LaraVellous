@@ -4,6 +4,7 @@ import { Head, Link, useForm } from '@inertiajs/vue3';
 import AuthenticationCard from '@/Components/AuthenticationCard.vue';
 import AuthenticationCardLogo from '@/Components/AuthenticationCardLogo.vue';
 import PrimaryButton from '@/Components/buttons/PrimaryButton.vue';
+import MasterLayout from '@/Layouts/MasterLayout.vue'
 
 const props = defineProps({
     status: String,
@@ -19,9 +20,8 @@ const verificationLinkSent = computed(() => props.status === 'verification-link-
 </script>
 
 <template>
-    <Head title="Email Verification" />
-
-    <AuthenticationCard>
+    <MasterLayout title="Email Verification">
+        <AuthenticationCard>
         <template #logo>
             <AuthenticationCardLogo />
         </template>
@@ -59,4 +59,5 @@ const verificationLinkSent = computed(() => props.status === 'verification-link-
             </div>
         </form>
     </AuthenticationCard>
+    </MasterLayout>
 </template>

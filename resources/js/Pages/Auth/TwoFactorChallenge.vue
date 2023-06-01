@@ -7,6 +7,7 @@ import InputError from '@/Components/form/InputError.vue';
 import InputLabel from '@/Components/form/InputLabel.vue';
 import PrimaryButton from '@/Components/buttons/PrimaryButton.vue';
 import TextInput from '@/Components/form/TextInput.vue';
+import MasterLayout from '@/Layouts/MasterLayout.vue'
 
 const recovery = ref(false);
 
@@ -38,9 +39,8 @@ const submit = () => {
 </script>
 
 <template>
-    <Head title="Two-factor Confirmation" />
-
-    <AuthenticationCard>
+    <MasterLayout title="Two-factor Confirmation">
+        <AuthenticationCard>
         <template #logo>
             <AuthenticationCardLogo />
         </template>
@@ -101,4 +101,5 @@ const submit = () => {
             </div>
         </form>
     </AuthenticationCard>
+    </MasterLayout>
 </template>
