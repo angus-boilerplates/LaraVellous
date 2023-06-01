@@ -1,7 +1,7 @@
 <script setup>
 import { Head, Link } from '@inertiajs/vue3';
 import GuestLayout from "@/Layouts/GuestLayout.vue";
-import PageContainer from "@/Components/PageContainer.vue";
+import PageContainer from "@/Components/_util/PageContainer.vue";
 
 defineProps({
     canLogin: Boolean,

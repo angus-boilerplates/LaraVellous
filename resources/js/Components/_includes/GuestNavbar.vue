@@ -34,7 +34,7 @@
         <div class="hidden sm:ml-6 sm:flex sm:items-center">
 
           <div class="flex gap-x-3">
-            <SecondaryButton :isLink="true" :href="route('register')">Register</SecondaryButton>
+            <SecondaryButton v-if="canRegister" :isLink="true" :href="route('register')">Register</SecondaryButton>
             <PrimaryButton :isLink="true" :href="route('login')">Login</PrimaryButton>
           </div>
         </div>
@@ -58,7 +58,7 @@
 
       </div>
       <div class="border-t border-gray-200 space-y-1 pb-3 pt-4">
-        <DisclosureButton as="a" :href="route('register')" class="
+        <DisclosureButton v-if="canRegister" as="a" :href="route('register')" class="
         hover:bg-light-light block rounded-md py-2 px-3 text-base font-medium dark:hover:bg-dark dark:text-light">
             Register
         </DisclosureButton>
@@ -79,6 +79,10 @@ import TextLogo from "@/Components/logos/TextLogo.vue"
 import TextLogoForDarkMode from "@/Components/logos/TextLogoForDarkMode.vue"
 import PrimaryButton from "@/Components/buttons/PrimaryButton.vue"
 import SecondaryButton from "@/Components/buttons/SecondaryButton.vue"
+import {usePage} from '@inertiajs/vue3';
+
+// Check we enabled registration
+const canRegister = usePage().props.canRegister
 
 let navigation = [
     { name: 'Overview', href: "#", current: route().current('index') },
