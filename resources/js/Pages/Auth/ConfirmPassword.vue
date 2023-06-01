@@ -3,10 +3,11 @@ import { ref } from 'vue';
 import { Head, useForm } from '@inertiajs/vue3';
 import AuthenticationCard from '@/Components/AuthenticationCard.vue';
 import AuthenticationCardLogo from '@/Components/AuthenticationCardLogo.vue';
-import InputError from '@/Components/InputError.vue';
-import InputLabel from '@/Components/InputLabel.vue';
-import PrimaryButton from '@/Components/PrimaryButton.vue';
-import TextInput from '@/Components/TextInput.vue';
+import InputError from '@/Components/form/InputError.vue';
+import InputLabel from '@/Components/form/InputLabel.vue';
+import PrimaryButton from '@/Components/buttons/PrimaryButton.vue';
+import TextInput from '@/Components/form/TextInput.vue';
+import MasterLayout from '@/Layouts/MasterLayout.vue'
 
 const form = useForm({
     password: '',
@@ -26,9 +27,8 @@ const submit = () => {
 </script>
 
 <template>
-    <Head title="Secure Area" />
-
-    <AuthenticationCard>
+    <MasterLayout title="Secure area">
+        <AuthenticationCard>
         <template #logo>
             <AuthenticationCardLogo />
         </template>
@@ -60,4 +60,5 @@ const submit = () => {
             </div>
         </form>
     </AuthenticationCard>
+    </MasterLayout>
 </template>
