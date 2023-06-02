@@ -1,21 +1,5 @@
 <template>
     <Head :title="title" />
-
-    <!-- <section class="bg-bgc dark:bg-bgc-dark h-screen">
-        <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
-            <div class="mx-auto max-w-screen-sm text-center">
-                <h1 class="mb-4 text-7xl tracking-tight font-extrabold lg:text-9xl text-primary dark:text-primary">{{status}}</h1>
-                <p class="mb-4 text-3xl tracking-tight font-bold text-gray-900 md:text-4xl dark:text-light">{{title}}</p>
-                <p class="mb-4 text-lg font-light text-txt-dark dark:text-txt">{{description}}</p>
-
-                <div class="mt-10">
-                  <SecondaryButton :isLink="true" href="/" >Home</SecondaryButton>
-                </div>
-
-            </div>
-        </div>
-    </section> -->
-
     <main class="grid  dark:bg-bgc-dark h-screen place-items-center py-24 px-6 sm:py-32 lg:px-8">
         <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
             <div class="mx-auto max-w-screen-sm text-center">
