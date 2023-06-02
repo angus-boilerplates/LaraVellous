@@ -1,5 +1,7 @@
 /* Custom CSS */
 
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
 /* Custom styles for full page */
 html, #app, body, .body{
     min-height: 100vh;

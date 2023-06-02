@@ -11,20 +11,7 @@
 
           </div>
           <div class="hidden sm:ml-6 sm:flex sm:space-x-8">
-            <Link v-for="item in navigation" :href="item.href" class="
-            inline-flex
-            items-center
-            border-b-2
-            border-transparent
-            px-1
-            pt-1
-            text-sm
-            font-medium
-            hover:border-gray-300
-            text-zinc-500
-            hover:text-zinc-600
-            dark:text-zinc-300
-            dark:hover:text-zinc-400">
+            <Link v-for="item in navigation" :href="item.href" :class="[item.current ? 'border-primary': 'hover:text-zinc-600  dark:hover:text-zinc-400 hover:border-gray-300', 'inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-zinc-500 dark:text-zinc-300  ']">
               {{ item.name}}
             </Link>
           </div>
@@ -33,7 +20,7 @@
         <!-- Right side (desktop) -->
         <div class="hidden sm:ml-6 sm:flex sm:items-center">
 
-          <div class="flex gap-x-3">
+          <div v-if="showLogin" class="flex gap-x-3">
             <SecondaryButton v-if="canRegister" :isLink="true" :href="route('register')">Register</SecondaryButton>
             <PrimaryButton :isLink="true" :href="route('login')">Login</PrimaryButton>
           </div>
@@ -57,7 +44,7 @@
         <DisclosureButton v-for="item in navigation" :key="item.name" as="a" :href="item.href" :class="[item.current ? 'bg-gray-100 text-primary-dark dark:text-primary-light dark:bg-inherit dark:hover:bg-inherit' : 'hover:bg-light-light', 'block rounded-md py-2 px-3 text-base font-medium dark:hover:bg-dark dark:text-light']" :aria-current="item.current ? 'page' : undefined">{{ item.name }}</DisclosureButton>
 
       </div>
-      <div class="border-t border-gray-200 space-y-1 pb-3 pt-4">
+      <div v-if="showLogin" class="border-t border-gray-200 space-y-1 pb-3 pt-4">
         <DisclosureButton v-if="canRegister" as="a" :href="route('register')" class="
         hover:bg-light-light block rounded-md py-2 px-3 text-base font-medium dark:hover:bg-dark dark:text-light">
             Register
@@ -83,6 +70,7 @@ import {usePage} from '@inertiajs/vue3';
 
 // Check we enabled registration
 const canRegister = usePage().props.canRegister
+const showLogin = usePage().props.showLogin
 
 let navigation = [
     { name: 'Overview', href: "#", current: route().current('index') },

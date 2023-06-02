@@ -63,6 +63,15 @@ Run Vite
 
 Visit [Localhost](http://localhost/)
 
+## Configuration
+
+| Variable Name      | Purpose                               | Accepted Values   | Default Value |
+| ------------------ | ------------------------------------- | ----------------- | ------------- |
+| SHOW_LOGIN_BUTTON  | Visibility of the login button         | true, false       | true          |
+| ADMIN_NAME         | Name of the admin user                 | String            | -             |
+| ADMIN_EMAIL        | Email of the admin user                | String            | -             |
+| ADMIN_PASSWORD     | Password for the admin user            | String            | -             |
+
 
 ## Tips
 

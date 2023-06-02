@@ -20,6 +20,18 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Login button
+    |--------------------------------------------------------------------------
+    |
+    | if True, the login button will be displayed on the navbar, otherwise it will
+    | be more hidden in the footer
+    |
+    */
+
+    'show_login_button' => env('SHOW_LOGIN_BUTTON', true),
+
+    /*
+    |--------------------------------------------------------------------------
     | Application Environment
     |--------------------------------------------------------------------------
     |

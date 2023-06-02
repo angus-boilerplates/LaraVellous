@@ -58,4 +58,30 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+
+    private function role() {
+        /**
+         * Get the role for this
+         * user, Note: the field
+         * is nullable so not all users
+         * will have a role
+         */
+        return $this->belongsTo(Role::class)->first();
+    }
+
+    public function getRole(){
+        return $this->role();
+    }
+
+    public function isAdmin($super=false){
+        /**
+         * Is this user admin or super admin?
+         */
+
+        // Check this user actually has a role
+        if ($this->role()){
+            return $super ? $this->role()->name == "Super Admin" :  in_array($this->role()->name, ["Admin", "Super Admin"]);
+        }
+        return false;
+    }
 }
