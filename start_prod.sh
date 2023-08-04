@@ -2,7 +2,7 @@
 
 
 # Create .env file from environment variables
-printenv | grep -v "^PHP_" | grep -v "no_proxy" > .env
+printenv | awk -F "=" 'NF==2 && $2 !~ /[\n\t ]/' > .env
 
 # Run our artisan commands
 php artisan route:clear
@@ -11,6 +11,8 @@ php artisan view:clear
 
 php artisan storage:link
 php artisan optimize
+
+# touch /var/www/html/database/database.sqlite
 
 php artisan migrate --force
 chmod -R 777 storage

@@ -153,6 +153,14 @@ docker run --name laravellous-tests laravellous-test-image # Run the testing ima
 
 Production
 
+Uncomment this line in the `start_prod.sh` file
+
+```bash
+# touch /var/www/html/database/database.sqlite
+```
+
+Then run this docker run command:
+
 ```bash
 docker run -d -p 3000:80 --name laravellous \
     -e APP_NAME=LaraVellous \
@@ -162,12 +170,10 @@ docker run -d -p 3000:80 --name laravellous \
     -e ADMIN_NAME=Bob \
     -e ADMIN_EMAIL=bob@gmail.com \
     -e ADMIN_PASSWORD=password \
-    # Add all other necessary environment variables here...
     laravellous-prod-image
 ```
 
-**_NOTE:_** This prod script will copy **ALL** the environment variables in the current 
-
+**_NOTE:_** This prod script will copy **ALL** the environment variables in the current that do not contain spaces or newlines
 
 In the command above:
 
