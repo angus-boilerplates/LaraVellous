@@ -10,9 +10,8 @@ php artisan config:clear
 php artisan view:clear
 
 php artisan storage:link
-php artisan optimize
 
-# touch /var/www/html/database/database.sqlite
+touch /var/www/html/database/database.sqlite
 
 php artisan migrate --force
 chmod -R 777 storage
