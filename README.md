@@ -153,10 +153,11 @@ docker run --name laravellous-tests laravellous-test-image # Run the testing ima
 
 Production
 
-Uncomment this line in the `start_prod.sh` file
+Add the following lines in the `start_prod.sh` file (line 13), remember to remove them before adding to a production server
 
 ```bash
-# touch /var/www/html/database/database.sqlite
+touch /var/www/html/database/database.sqlite
+chmod -R 777 /var/www/html/database/database.sqlite
 ```
 
 Then run this docker run command:

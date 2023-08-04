@@ -11,8 +11,6 @@ php artisan view:clear
 
 php artisan storage:link
 
-touch /var/www/html/database/database.sqlite
-
 php artisan migrate --force
 chmod -R 777 storage
 
