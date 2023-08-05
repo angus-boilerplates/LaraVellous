@@ -105,6 +105,8 @@ The CD workflow requires two GitHub secrets:
 
 To add these secrets to your GitHub repository, go to your repository on GitHub, click on "Settings", then "Secrets", and add the secrets there.
 
+Currently the Github workflows are set to only trigger manually, to setup an automated CI/CD pipeline, removed `workflow_dispatch: ` from `.github/workflows/ci.yml` and `.github/workflows/cd.yml` and uncomment the next few lines.
+
 ### Server Configuration
 
 After the Docker image is pushed to the container registry, you will need to pull the image on your server and restart your application. This process will depend on your server setup. 
