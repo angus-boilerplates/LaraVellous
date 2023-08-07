@@ -126,6 +126,18 @@ docker run -d -p 80:80 --name my-app \
 
 **_NOTE:_**  The above can normally be automated using a server management tool such as [CapRover](https://caprover.com/), [EasyPanel](https://easypanel.io/) etc.
 
+#### Volume mounting
+
+In a Dockerized environment, volume mounting is often used to ensure that certain data persists beyond the life of a container or to share data between the host and container. In the case of LaraVellous, you may want to volume mount the storage folder to ensure that any uploaded files, logs, or other persistent data are kept intact across container restarts or rebuilds.
+
+```bash
+docker run -d -p 3000:80 --name laravellous \
+    -v /path/to/laravellous/storage:/var/www/html/storage \
+    # Other env variables and options etc...
+    laravellous-prod-image
+
+```
+
 ## Building and Running Docker Images Locally
 
 For development and troubleshooting, Laravel Sail is generally recommended. However, you can also build and run the Docker images locally, especially when testing changes or finalizing your production setup.
