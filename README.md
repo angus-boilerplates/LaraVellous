@@ -74,6 +74,7 @@ Visit [Localhost](http://localhost/)
 | Variable Name      | Purpose                               | Accepted Values   | Default Value |
 | ------------------ | ------------------------------------- | ----------------- | ------------- |
 | SHOW_LOGIN_BUTTON  | Visibility of the login button         | true, false       | true          |
+| DISABLE_REGISTRATION  | Should registration be disabled         | true, false       | false          |
 | ADMIN_NAME         | Name of the admin user                 | String            | -             |
 | ADMIN_EMAIL        | Email of the admin user                | String            | -             |
 | ADMIN_PASSWORD     | Password for the admin user            | String            | -             |
