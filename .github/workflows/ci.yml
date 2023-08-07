@@ -7,7 +7,7 @@ on:
   #     - main
 
 env:
-  IMAGE_NAME: laravellous-test-image
+  IMAGE_NAME: laravellous-test-image # Needs to be lowercase
   REGISTRY: ghcr.io
 
 jobs:
@@ -27,7 +27,7 @@ jobs:
         with:
           context: .
           push: false
-          tags: ${{ env.REGISTRY }}/${{ github.repository }}/${{ env.IMAGE_NAME }}:testing
+          tags: ${{ env.REGISTRY }}/${{ github.repository | toLower }}/${{ env.IMAGE_NAME }}:testing
           load: true
           target: test # Target the test build target in the Dockerfile
 
