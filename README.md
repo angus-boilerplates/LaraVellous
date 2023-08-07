@@ -111,7 +111,7 @@ Currently the Github workflows are set to only trigger manually, to setup an aut
 
 After the Docker image is pushed to the container registry, you will need to pull the image on your server and restart your application. This process will depend on your server setup. 
 
-When running the Docker container, it is important to inject your environment variables at runtime. The Dockerfile and start scripts are set up to generate an `.env` file from the environment variables in the Docker container. This is done by running the command `printenv | grep -v "no_proxy" > .env` at the start of the script. 
+When running the Docker container, it is important to inject your environment variables at runtime. The Dockerfile and start scripts are set up to generate an `.env` file from the environment variables in the Docker container. This is done by running the command `printenv | awk -F "=" 'NF==2 && $2 !~ /[\n\t ]/' > .env` at the start of the script. 
 
 Ensure that your Docker run command includes the `-e` option to set the environment variables, for example:
 
@@ -136,7 +136,7 @@ You can build a Docker image of your application using the `docker build` comman
 
 ```bash
 docker build --target test -t laravellous-test-image . # Build the testing image
-docker build --target prod -t laravellous-prod-image . # Build the production image (will start nginx etc)
+docker build --target prod -t laravellous-prod-image . # Build the production image (will start nginx, php-fpm etc)
 ```
 
 **_NOTE:_** Running docker build with no target specified will produce an image that is not optimized for it's environment and may cause unexpected behavior
