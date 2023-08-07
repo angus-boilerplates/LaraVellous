@@ -19,6 +19,9 @@ jobs:
       - name: Check out code
         uses: actions/checkout@v2
 
+      - name: Convert repository name to lowercase
+        run: echo "REPO_NAME=$(echo "${{ github.repository }}" | tr '[:upper:]' '[:lower:]')" >> $GITHUB_ENV
+
       #- name: create env.testing file # - Uncomment this to load testing env vars from secrets (then add --env-file .env.testing to docker run below)
         #run: echo "${{ secrets.ENV_FILE_TESTING }}" > .env.testing
 
@@ -27,7 +30,7 @@ jobs:
         with:
           context: .
           push: false
-          tags: ${{ env.REGISTRY }}/${{ github.repository | toLower }}/${{ env.IMAGE_NAME }}:testing
+          tags: ${{ env.REGISTRY }}/${{github.repository}}/${{ env.IMAGE_NAME }}:testing
           load: true
           target: test # Target the test build target in the Dockerfile
 
