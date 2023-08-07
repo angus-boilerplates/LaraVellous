@@ -16,7 +16,7 @@ jobs:
     environment: production
     steps:
       - name: Check out code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Convert repository name to lowercase
         run: echo "REPO_NAME=$(echo "${{ github.repository }}" | tr '[:upper:]' '[:lower:]')" >> $GITHUB_ENV
@@ -35,7 +35,7 @@ jobs:
           images: ${{ env.REGISTRY }}/${{env.REPO_NAME}}/${{ env.IMAGE_NAME }}
 
       - name: Build and push Docker image
-        uses: docker/build-push-action@v2
+        uses: docker/build-push-action@v4
         with:
           context: .
           push: true

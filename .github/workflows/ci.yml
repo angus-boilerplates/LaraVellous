@@ -17,7 +17,7 @@ jobs:
     environment: testing # The Github environment to use
     steps:
       - name: Check out code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Convert repository name to lowercase
         run: echo "REPO_NAME=$(echo "${{ github.repository }}" | tr '[:upper:]' '[:lower:]')" >> $GITHUB_ENV
@@ -26,7 +26,7 @@ jobs:
         #run: echo "${{ secrets.ENV_FILE_TESTING }}" > .env.testing
 
       - name: Build Docker image
-        uses: docker/build-push-action@v2
+        uses: docker/build-push-action@v4
         with:
           context: .
           push: false
