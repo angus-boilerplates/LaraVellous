@@ -111,7 +111,7 @@ Currently the Github workflows are set to only trigger manually, to setup an aut
 
 After the Docker image is pushed to the container registry, you will need to pull the image on your server and restart your application. This process will depend on your server setup. 
 
-When running the Docker container, it is important to inject your environment variables at runtime. The Dockerfile and start scripts are set up to generate an `.env` file from the environment variables in the Docker container. This is done by running the command `printenv | grep -v "no_proxy" > .env` at the start of the script. 
+When running the Docker container, it is important to inject your environment variables at runtime. The Dockerfile and start scripts are set up to generate an `.env` file from the environment variables in the Docker container. This is done by running the command `printenv | awk -F "=" 'NF==2 && $2 !~ /[\n\t ]/' > .env` at the start of the script. 
 
 Ensure that your Docker run command includes the `-e` option to set the environment variables, for example:
 
@@ -126,6 +126,18 @@ docker run -d -p 80:80 --name my-app \
 
 **_NOTE:_**  The above can normally be automated using a server management tool such as [CapRover](https://caprover.com/), [EasyPanel](https://easypanel.io/) etc.
 
+#### Volume mounting
+
+In a Dockerized environment, volume mounting is often used to ensure that certain data persists beyond the life of a container or to share data between the host and container. In the case of LaraVellous, you may want to volume mount the storage folder to ensure that any uploaded files, logs, or other persistent data are kept intact across container restarts or rebuilds.
+
+```bash
+docker run -d -p 3000:80 --name laravellous \
+    -v /path/to/laravellous/storage:/var/www/html/storage \
+    # Other env variables and options etc...
+    laravellous-prod-image
+
+```
+
 ## Building and Running Docker Images Locally
 
 For development and troubleshooting, Laravel Sail is generally recommended. However, you can also build and run the Docker images locally, especially when testing changes or finalizing your production setup.
@@ -136,7 +148,7 @@ You can build a Docker image of your application using the `docker build` comman
 
 ```bash
 docker build --target test -t laravellous-test-image . # Build the testing image
-docker build --target prod -t laravellous-prod-image . # Build the production image (will start nginx etc)
+docker build --target prod -t laravellous-prod-image . # Build the production image (will start nginx, php-fpm etc)
 ```
 
 **_NOTE:_** Running docker build with no target specified will produce an image that is not optimized for it's environment and may cause unexpected behavior

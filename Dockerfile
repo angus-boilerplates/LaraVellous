@@ -57,15 +57,18 @@ WORKDIR /var/www/html
 # Remove the 'tests' directory (to ensure they are not in prod image, they can be added back later for testing)
 RUN rm -rf /var/www/html/tests
 
-# Set folder permissions for Laravel
-RUN chmod -R 777 /var/www/html/storage 
-
 # Copy our prod script and set permissions
 COPY start_prod.sh /start.sh
 RUN chmod +x /start.sh
 
+# Change the owner group of the directories to www-data
+RUN chown -R :www-data /var/www/html && chmod -R g+rwxs /var/www/html
+
+# Set group permissions
+RUN chmod -R 775 /var/www/html
+
 # Copy Nginx config file
-COPY nginx.conf /etc/nginx/http.d/default.conf
+COPY nginx.conf /etc/nginx/nginx.conf
 
 # Expose port 80
 EXPOSE 80
