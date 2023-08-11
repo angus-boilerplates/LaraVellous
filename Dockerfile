@@ -95,9 +95,6 @@ COPY tests /var/www/html/tests
 # Copy testing .env file to use as the main .env
 COPY .env.testing /var/www/html/.env
 
-# Create sqlite test database
-RUN touch /var/www/html/database/database.sqlite
-
 # Copy our testing script and set permissions
 COPY start_tests.sh /start.sh
 RUN chmod +x /start.sh

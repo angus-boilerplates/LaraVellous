@@ -2,9 +2,9 @@ name: CI Pipeline
 
 on:
   workflow_dispatch: 
-  # pull_request:
-  #   branches:
-  #     - main
+  pull_request:
+    branches:
+      - main
 
 env:
   IMAGE_NAME: laravellous-test-image # Needs to be lowercase
@@ -37,6 +37,6 @@ jobs:
 
       - name: Run Tests
         run: |
-          docker run -d --name my_container ${{ env.REGISTRY }}/${{ env.REPO_NAME }}/${{ env.IMAGE_NAME }}:testing
+          docker run --name my_container ${{ env.REGISTRY }}/${{ env.REPO_NAME }}/${{ env.IMAGE_NAME }}:testing
 
 
