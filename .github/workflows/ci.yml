@@ -37,6 +37,6 @@ jobs:
 
       - name: Run Tests
         run: |
-          docker run -d --name my_container ${{ env.REGISTRY }}/${{ env.REPO_NAME }}/${{ env.IMAGE_NAME }}:testing
+          docker run --name my_container ${{ env.REGISTRY }}/${{ env.REPO_NAME }}/${{ env.IMAGE_NAME }}:testing
 
 
