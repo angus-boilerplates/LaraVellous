@@ -44,9 +44,10 @@ jobs:
           target: prod # Target the prod build target in the Dockerfile
 
       - name: Deploy Image to CapRrover
-          uses: caprover/deploy-from-github@v1.1.2
-          with:
-            server: "${{ secrets.CAP_SERVER_URL }}"
-            app: "${{ secrets.CAP_APP_NAME }}"
-            token: "${{ secrets.CAP_APP_TOKEN }}"
-            image: ${{ env.REGISTRY }}/${{env.REPO_NAME}}/${{ env.IMAGE_NAME }}:${{ steps.meta.outputs.version }}
+        uses: caprover/deploy-from-github@v1.1.2
+        with:
+          server: "${{ secrets.CAP_SERVER_URL }}"
+          app: "${{ secrets.CAP_APP_NAME }}"
+          token: "${{ secrets.CAP_APP_TOKEN }}"
+          image: ${{ env.REGISTRY }}/${{env.REPO_NAME}}/${{ env.IMAGE_NAME }}:${{ steps.meta.outputs.version }}
+
