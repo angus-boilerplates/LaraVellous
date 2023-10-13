@@ -1,8 +1,8 @@
 <?php
 
+use App\Http\Controllers\StorageController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\StorageController;
 use Inertia\Inertia;
 
 /*

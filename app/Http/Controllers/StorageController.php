@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\File;
-use Illuminate\Support\Facades\Log;
 
 class StorageController extends Controller
 {
@@ -12,7 +11,7 @@ class StorageController extends Controller
      */
     public function image($path)
     {
-      return $this->serveFileFromPath('app/public/images/' . $path);
+        return $this->serveFileFromPath('app/public/images/'.$path);
     }
 
     /**
@@ -20,7 +19,7 @@ class StorageController extends Controller
      */
     public function storage($path)
     {
-        return $this->serveFileFromPath('app/' . $path);
+        return $this->serveFileFromPath('app/'.$path);
     }
 
     /**
@@ -29,13 +28,13 @@ class StorageController extends Controller
     private function serveFileFromPath($path)
     {
         $storagePath = storage_path($path);
-        
-        if (!File::exists($storagePath) || File::isDirectory($storagePath)) {
-          abort(404);
+
+        if (! File::exists($storagePath) || File::isDirectory($storagePath)) {
+            abort(404);
         }
 
         $mimeType = File::mimeType($storagePath);
-        
+
         return response()->file($storagePath, ['Content-Type' => $mimeType]);
     }
 }

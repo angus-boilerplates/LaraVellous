@@ -17,10 +17,10 @@ return new class extends Migration
         Schema::create('roles', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->text("name");
-            $table->text("code");
-            $table->text("description");
-            $table->boolean("changeable")->default(1);
+            $table->text('name');
+            $table->text('code');
+            $table->text('description');
+            $table->boolean('changeable')->default(1);
         });
 
     }
@@ -35,5 +35,3 @@ return new class extends Migration
         Schema::dropIfExists('roles');
     }
 };
-
-

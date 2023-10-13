@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -59,7 +58,8 @@ class User extends Authenticatable
         'profile_photo_url',
     ];
 
-    private function role() {
+    private function role()
+    {
         /**
          * Get the role for this
          * user, Note: the field
@@ -69,19 +69,22 @@ class User extends Authenticatable
         return $this->belongsTo(Role::class)->first();
     }
 
-    public function getRole(){
+    public function getRole()
+    {
         return $this->role();
     }
 
-    public function isAdmin($super=false){
+    public function isAdmin($super = false)
+    {
         /**
          * Is this user admin or super admin?
          */
 
         // Check this user actually has a role
-        if ($this->role()){
-            return $super ? $this->role()->name == "Super Admin" :  in_array($this->role()->name, ["Admin", "Super Admin"]);
+        if ($this->role()) {
+            return $super ? $this->role()->name == 'Super Admin' : in_array($this->role()->name, ['Admin', 'Super Admin']);
         }
+
         return false;
     }
 }

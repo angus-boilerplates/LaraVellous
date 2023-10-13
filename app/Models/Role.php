@@ -11,11 +11,11 @@ class Role extends Model
 
     public function isSuperAdmin()
     {
-        return $this->name == "Super Admin";
+        return $this->name == 'Super Admin';
     }
 
     public function isAdmin()
     {
-        return $this->name == "Admin";
+        return $this->name == 'Admin';
     }
 }
